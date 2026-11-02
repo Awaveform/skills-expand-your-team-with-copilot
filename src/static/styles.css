@@ -50,6 +50,29 @@ body {
   font-size: 0.9rem;
 }
 
+body[data-theme="dark"] {
+  color-scheme: dark;
+  --primary: #7986cb;
+  --primary-light: #9fa8da;
+  --primary-dark: #3949ab;
+  --primary-text: #ffffff;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --text-primary: #eeeeee;
+  --text-secondary: #b0b0b0;
+  --border: #424242;
+  --border-light: #333333;
+  --border-focus: #616161;
+  --success: #81c784;
+  --success-light: #1b3a20;
+  --warning: #ffb74d;
+  --warning-light: #4a3513;
+  --error: #ef9a9a;
+  --error-light: #4a2020;
+  --info: #80deea;
+  --info-light: #18383d;
+}
+
 header {
   text-align: center;
   padding: 12px 0;
@@ -205,6 +228,11 @@ section h3 {
   letter-spacing: 0.3px;
 }
 
+body[data-theme="dark"] .activity-tag {
+  background-color: #3949ab !important;
+  color: #ffffff !important;
+}
+
 /* Capacity Indicator */
 .capacity-container {
   margin: 8px 0;
@@ -296,6 +324,18 @@ button {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+
+input,
+textarea,
+select {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+input::placeholder {
+  color: var(--text-secondary);
 }
 
 /* Tooltip styles */
@@ -612,11 +652,20 @@ footer {
   }
 }
 
+@media (max-width: 600px) {
+  header {
+    padding-top: 50px;
+  }
+}
+
 /* User controls in header */
 #user-controls {
   position: absolute;
   top: 10px;
   right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 #user-status {
